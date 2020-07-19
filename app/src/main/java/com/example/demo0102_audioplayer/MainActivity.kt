@@ -15,10 +15,15 @@ class MainActivity : AppCompatActivity() {
         val jcAudios: ArrayList<JcAudio> = ArrayList()
 
         //在播放列表中添加音频资源
-        jcAudios.add(JcAudio.createFromRaw("darktown_strutters_ball", R.raw.darktown_strutters_ball));
+        jcAudios.add(JcAudio.createFromRaw("darktown_strutters_ball", R.raw.darktown_strutters_ball))
 
         //将播放列表绑定到播放器
         jcplayer.initPlaylist(jcAudios, null)
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        jcplayer.kill()
     }
 }
